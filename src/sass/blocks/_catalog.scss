@@ -150,21 +150,21 @@
                     top: 8px;
 
                 }
-            }
-            &__back {
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(calc(-50% - 19px));
-                display: block;
+            }            
+        }
+        &__back {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(calc(-50% - 19px));
+            display: block;
+            color: $main-color;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: underline;
+            text-transform: uppercase;
+            &:hover {
                 color: $main-color;
-                font-size: 14px;
-                font-weight: 500;
-                text-decoration: underline;
-                text-transform: uppercase;
-                &:hover {
-                    color: $main-color;
-                }
             }
         }
     }
