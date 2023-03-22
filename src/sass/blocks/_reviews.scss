@@ -1,12 +1,16 @@
 .reviews {
     &__wrapper{
-        
+        margin-bottom: 60px;
     }
     &__block {
         display: flex;
         margin-top: 60px;
         flex-direction:row;
         justify-content: space-between;
+        img {
+            height: 170px;
+            width: 170px;
+        }
     }
     &__review {
         margin-left: 60px;
