@@ -13,7 +13,7 @@ $(document).ready(function(){
           ('catalog__content_active');
       });
 
-      function toggleSlide(item) {
+    function toggleSlide(item) {
         $(item).each(function(i) {
             $(this).on('click', function(e) {
                 e.preventDefault();
@@ -21,26 +21,76 @@ $(document).ready(function(){
                 $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
             })
         });
-      };
+    };
 
-      toggleSlide('.catalog-item__link');
-      toggleSlide('.catalog-item__back');
+    toggleSlide('.catalog-item__link');
+    toggleSlide('.catalog-item__back');
 
       //Modal
 
-      $('[data-modal=consultation]').on('click', function() {
+    $('[data-modal=consultation]').on('click', function() {
         $('.overlay, #consultation').fadeIn('slow');
-      });
+    });
 
-      $('.modal__close').on('click', function() {
+    $('.modal__close').on('click', function() {
         $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
-      });
+    });
 
-      $('.button_mini').each(function(i){
+    $('.button_mini').each(function(i){
         $(this).on('click', function() {
             $('#order .modal__description').text($('.catalog-item__subtitle').eq(i).text());
             $('.overlay, #order').fadeIn('slow');
         });
-      });
+    });
 
+      //Validation
+
+    //   $('#consultation-form').validate();
+
+    //   $('#consultation form').validate({
+    //     rules: {
+    //         name: "required",
+    //         phone: "required",
+    //         email: {
+    //             required: true,
+    //             email: true
+    //         }
+    //     },
+    //     messages: {
+    //         name: "Пожалуйста, введите свое имя",
+    //         phone: "Пожалуйста, введите свой номер телефона",
+    //         email: {
+    //           required: "Пожалуйста, введите свою почту",
+    //           email: "Неправильный адрес почты"
+    //         }
+    //       }
+    //   });
+      
+    //   $('#order form').validate();
+
+    function valideForms(form) {
+        $(form).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: "Пожалуйста, введите свое имя",
+                phone: "Пожалуйста, введите свой номер телефона",
+                email: {
+                  required: "Пожалуйста, введите свою почту",
+                  email: "Неправильный адрес почты"
+                }
+            }
+        });
+    };
+
+    valideForms('#order form');
+    valideForms('#consultation-form');
+    valideForms('#consultation form');
+    
   });
