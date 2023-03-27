@@ -43,30 +43,7 @@ $(document).ready(function(){
         });
     });
 
-      //Validation
-
-    //   $('#consultation-form').validate();
-
-    //   $('#consultation form').validate({
-    //     rules: {
-    //         name: "required",
-    //         phone: "required",
-    //         email: {
-    //             required: true,
-    //             email: true
-    //         }
-    //     },
-    //     messages: {
-    //         name: "Пожалуйста, введите свое имя",
-    //         phone: "Пожалуйста, введите свой номер телефона",
-    //         email: {
-    //           required: "Пожалуйста, введите свою почту",
-    //           email: "Неправильный адрес почты"
-    //         }
-    //       }
-    //   });
-      
-    //   $('#order form').validate();
+    //Validation
 
     function valideForms(form) {
         $(form).validate({
@@ -92,5 +69,7 @@ $(document).ready(function(){
     valideForms('#order form');
     valideForms('#consultation-form');
     valideForms('#consultation form');
+
+    $('input[name=phone').mask("+7 (999) 999-99-99");
     
   });
