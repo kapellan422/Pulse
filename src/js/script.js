@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
         speed: 1200,
-        prevArrow: '<button type="button" class="slick-prev"><img src="../icons/chevrons/chevron_left.png"></button>',
-        nextArrow: '<button type="button" class="slick-next"><img src="../icons/chevrons/chevron_right.png"></button>',
+        prevArrow: '<button type="button" class="slick-prev"><img src="icons/chevrons/chevron_left.png"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="icons/chevrons/chevron_right.png"></button>',
     });
 
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
@@ -71,5 +71,24 @@ $(document).ready(function(){
     valideForms('#consultation form');
 
     $('input[name=phone').mask("+7 (999) 999-99-99");
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+
+        if (!$(this).valid()) {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function(){
+            $(this).find("input").val("");
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
     
   });
